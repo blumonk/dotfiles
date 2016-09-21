@@ -12,7 +12,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'bling/vim-airline'
-Plugin 'jvirtanen/vim-octave'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Valloric/MatchTagAlways'
 
 call vundle#end()
 
@@ -33,9 +34,21 @@ set smartcase              " Ignore case if pattern is all lowercase
 set noswapfile             " Don't need the swap file
 colorscheme jellybeans     " Set the color scheme
 
+" Syntastic config
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_python_python_exec = 'python3'
+
+" Executing code
+autocmd FileType python nnoremap <silent> <F9> :w<cr>:exec '!clear;ipython3 -i %' shellescape(@%, 1)<cr>
+autocmd FileType c,cpp  nnoremap <silent> <F9> :w<cr>:exec '!clear;make'<cr>
+
 " Airline config
-"let g:airline#extensions#tabline#enabled=1
 let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts=1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 
 " Enable '.' in visual mode
 vnoremap . :norm.<CR> 
@@ -56,6 +69,9 @@ set undolevels=1000
 
 " Let backspacing in insert mode
 set backspace=indent,eol,start
+
+" Delete previous word in insert mode
+imap <C-BS> <C-W>
 
 " Search configs
 set hlsearch
@@ -92,7 +108,6 @@ function! NERDTreeQuit()
   redir => buffersoutput
   silent buffers
   redir END
-"                     1BufNo  2Mods.     3File           4LineNo
   let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
   let windowfound = 0
 
