@@ -35,9 +35,7 @@ set noswapfile             " Don't need the swap file
 colorscheme jellybeans     " Set the color scheme
 
 " Syntastic config
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers=['pyflakes']
 
 " Executing code
 autocmd FileType python nnoremap <silent> <F9> :w<cr>:exec '!clear;ipython3 -i %' shellescape(@%, 1)<cr>
@@ -126,4 +124,3 @@ function! NERDTreeQuit()
   endif
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
-
