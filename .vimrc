@@ -6,8 +6,9 @@ call vundle#begin()
 
 " List of plugins 
 Plugin 'gmarik/Vundle.vim'
+Plugin 'w0rp/ale'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'nanotech/jellybeans.vim'
@@ -34,12 +35,8 @@ set smartcase              " Ignore case if pattern is all lowercase
 set noswapfile             " Don't need the swap file
 colorscheme jellybeans     " Set the color scheme
 
-" Syntastic config
-let g:syntastic_python_checkers=['pyflakes']
-
-" Executing code
-autocmd FileType python nnoremap <silent> <F9> :w<cr>:exec '!clear;ipython3 -i %' shellescape(@%, 1)<cr>
-autocmd FileType c,cpp  nnoremap <silent> <F9> :w<cr>:exec '!clear;make'<cr>
+" Format python code with google/yapf
+autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 
 " Airline config
 let g:airline_theme='bubblegum'
@@ -51,8 +48,9 @@ endif
 " Enable '.' in visual mode
 vnoremap . :norm.<CR> 
 
-" Remap the leader key to Space
+" Assign leader keys
 let mapleader = "\<Space>"
+let maplocalleader = "-"
 
 " Configure indents
 set autoindent

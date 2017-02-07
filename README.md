@@ -1,7 +1,8 @@
 ## Setting up
 
+Vim 8 required.
+
 - clone this repo
 - move all the files to home dir `~`
-- install `Vundle`:
-   `$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+- launch `install.sh`
 - launch `vim` and run `:PluginInstall`
