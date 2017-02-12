@@ -31,12 +31,18 @@ set t_Co=256               " Enable 256 colors
 set wildmenu               " Bash-style auto completion
 set cursorline             " Highlight the current line
 set laststatus=2           " Always show the status bar
-set smartcase              " Ignore case if pattern is all lowercase
+set ignorecase             " Always ignore case when searching
 set noswapfile             " Don't need the swap file
 colorscheme jellybeans     " Set the color scheme
 
 " Format python code with google/yapf
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
+
+" Disable pop-ups with function signatures during autocomplete
+let g:jedi#show_call_signatures = ""
+
+" Automatically remove all trailing whitespaces
+autocmd BufWritePre *.py :%s/\s\+$//e
 
 " Airline config
 let g:airline_theme='bubblegum'
