@@ -7,7 +7,6 @@ call vundle#begin()
 " List of plugins 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'w0rp/ale'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Raimondi/delimitMate'
@@ -20,26 +19,27 @@ call vundle#end()
 
 filetype plugin indent on
 
-syntax on                  " Show syntax highlighting
-set encoding=utf-8         " Default encoding UTF-8 
-set nocompatible           " Just in case
-set number                 " Show absolute line numbers
-set showmatch              " Highlight bracket matches 
-set ruler                  " Show line and column on footer
-set scrolloff=15           " Minimum lines above and below the cursor
-set t_Co=256               " Enable 256 colors
-set wildmenu               " Bash-style auto completion
-set cursorline             " Highlight the current line
-set laststatus=2           " Always show the status bar
-set ignorecase             " Always ignore case when searching
-set noswapfile             " Don't need the swap file
-colorscheme jellybeans     " Set the color scheme
+syntax on                   " Show syntax highlighting
+set encoding=utf-8          " Default encoding UTF-8
+set nocompatible            " Just in case
+set number                  " Show absolute line numbers
+set showmatch               " Highlight bracket matches
+set ruler                   " Show line and column on footer
+set scrolloff=15            " Minimum lines above and below the cursor
+set t_Co=256                " Enable 256 colors
+set wildmenu                " Bash-style auto completion
+set cursorline              " Highlight the current line
+set laststatus=2            " Always show the status bar
+set ignorecase              " Always ignore case when searching
+set noswapfile              " Don't need the swap file
+set clipboard=unnamedplus
+colorscheme jellybeans      " Set the color scheme
 
 " Format python code with google/yapf
-autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
+autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf --style pep8<CR>
 
-" Disable pop-ups with function signatures during autocomplete
-let g:jedi#show_call_signatures = ""
+" Browse opened buffers easily
+:nnoremap <F5> :buffers<CR>:buffer<Space>
 
 " Automatically remove all trailing whitespaces
 autocmd BufWritePre *.py :%s/\s\+$//e
@@ -50,6 +50,11 @@ let g:airline_powerline_fonts=1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+
+" Enable folding by indent
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
 
 " Enable '.' in visual mode
 vnoremap . :norm.<CR> 
