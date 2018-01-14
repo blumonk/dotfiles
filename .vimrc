@@ -14,6 +14,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/MatchTagAlways'
+Plugin 'hashivim/vim-vagrant'
 
 call vundle#end()
 
