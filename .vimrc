@@ -97,6 +97,7 @@ nmap <C-p> :bprevious<CR>
 
 " NERDTree toggle
 silent! nmap <F2> :NERDTreeToggle<CR>
+silent! nmap <leader>t :NERDTreeToggle<CR>
 
 " Intellij-like commenting
 silent! nmap <C-c> :call NERDComment(0,"toggle")<CR>j
