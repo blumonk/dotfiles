@@ -112,6 +112,9 @@ map <C-h> <C-w><Left>
 silent! nmap <C-Tab> :bnext
 silent! nnoremap <C-S-Tab> :bprevious<cr>
 
+" Copy lines to clipboard in visual mode
+vmap <C-c> :w !pbcopy<CR><CR>
+
 " Automatically close NERDTree when quitting vim
 function! NERDTreeQuit()
   redir => buffersoutput
