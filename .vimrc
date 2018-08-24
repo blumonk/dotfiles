@@ -15,6 +15,7 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'hashivim/vim-vagrant'
+Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()
 
@@ -35,6 +36,8 @@ set ignorecase              " Always ignore case when searching
 set noswapfile              " Don't need the swap file
 set clipboard=unnamedplus
 colorscheme jellybeans      " Set the color scheme
+
+let g:jedi#completions_command = "<C-N>"
 
 " Format python code with google/yapf
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf --style pep8<CR>
