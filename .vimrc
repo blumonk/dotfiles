@@ -39,6 +39,9 @@ colorscheme jellybeans      " Set the color scheme
 " Format python code with google/yapf
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf --style pep8<CR>
 
+" Highlight Salt files
+autocmd BufNewFile,BufRead *.sls set syntax=yaml
+
 " Browse opened buffers easily
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 
@@ -48,6 +51,15 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 " Airline config
 let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#fnamecollapse = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#tabline#keymap_ignored_filetypes = ['nerdtree']
+
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
