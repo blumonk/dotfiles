@@ -6,16 +6,19 @@ call vundle#begin()
 
 " List of plugins 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'w0rp/ale'
+"Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'hashivim/vim-vagrant'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'dag/vim-fish'
+Plugin 'fatih/vim-go'
+Plugin 'SirVer/ultisnips'
 
 call vundle#end()
 
@@ -38,6 +41,8 @@ set clipboard=unnamedplus
 colorscheme jellybeans      " Set the color scheme
 
 let g:jedi#completions_command = "<C-N>"
+
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 " Format python code with google/yapf
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf --style pep8<CR>
@@ -129,6 +134,14 @@ silent! nnoremap <C-S-Tab> :bprevious<cr>
 
 " Copy lines to clipboard in visual mode
 vmap <C-c> :w !pbcopy<CR><CR>
+
+" Go bindings
+autocmd FileType go nmap <leader>d  <Plug>(go-def)
+
+" Set ultisnips shortcuts
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Automatically close NERDTree when quitting vim
 function! NERDTreeQuit()
