@@ -1,26 +1,24 @@
 filetype off
 
-" Set runtime path to vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=/usr/local/opt/fzf
 
-" List of plugins 
-Plugin 'gmarik/Vundle.vim'
-"Plugin 'w0rp/ale'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Raimondi/delimitMate'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'hashivim/vim-vagrant'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'dag/vim-fish'
-Plugin 'fatih/vim-go'
-Plugin 'SirVer/ultisnips'
+call plug#begin('~/.vim/plugged')
 
-call vundle#end()
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Raimondi/delimitMate'
+Plug 'nanotech/jellybeans.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Valloric/MatchTagAlways'
+Plug 'hashivim/vim-vagrant'
+Plug 'davidhalter/jedi-vim'
+Plug 'dag/vim-fish'
+Plug 'fatih/vim-go'
+Plug 'SirVer/ultisnips'
+
+call plug#end()
 
 filetype plugin indent on
 
