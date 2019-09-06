@@ -4,6 +4,8 @@ set rtp+=/usr/local/opt/fzf
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
