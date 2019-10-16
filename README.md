@@ -4,10 +4,13 @@ Vim 8 is required.
 
 1. Clone this repo.
 2. Copy all the files to the home dir `~`
-3. Install Vundle:
+3. Install **vim-plug**:
 
-    `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+```
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 
 4. Install Plugins:
 
-    Launch `vim` and run `:PluginInstall`
+    Launch `vim` and run `:PlugInstall`
