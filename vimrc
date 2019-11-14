@@ -19,6 +19,8 @@ Plug 'davidhalter/jedi-vim'
 Plug 'dag/vim-fish'
 Plug 'fatih/vim-go'
 Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 
@@ -127,6 +129,12 @@ map <C-k> <C-w><Up>
 map <C-j> <C-w><Down>
 map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
+
+" Map arrows to splits resizing
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
 
 " Browser-like switching between buffers
 silent! nmap <C-Tab> :bnext
